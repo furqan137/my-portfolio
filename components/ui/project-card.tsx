@@ -54,30 +54,31 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
           {/* Action Buttons */}
           <div className="flex items-center gap-3 mt-auto">
-            {project.github && (
-              <Button asChild variant="outline" size="sm">
-                <Link
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github className="h-4 w-4 mr-2" />
-                  Code
-                </Link>
-              </Button>
-            )}
-            {project.demo && (
-              <Button asChild variant="outline" size="sm">
-                <Link
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Demo
-                </Link>
-              </Button>
-            )}
+           {project.github && (
+  <Button asChild variant="outline" size="sm">
+    <Link
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Github className="h-4 w-4 mr-2" />
+      Code
+    </Link>
+  </Button>
+)}
+{project.demo && (
+  <Button asChild variant="outline" size="sm">
+    <Link
+      href={project.demo}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <ExternalLink className="h-4 w-4 mr-2" />
+      Demo
+    </Link>
+  </Button>
+)}
+
           </div>
         </CardContent>
       </Card>
