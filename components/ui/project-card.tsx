@@ -67,7 +67,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </Button>
             )}
             {project.demo && (
-              <Button asChild variant="default" size="sm">
+              <Button asChild variant="outline" size="sm">
                 <Link
                   href={project.demo}
                   target="_blank"
