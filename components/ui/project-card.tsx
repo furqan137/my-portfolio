@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,6 +22,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       viewport={{ once: true }}
     >
       <Card className="overflow-hidden h-full flex flex-col hover:shadow-lg transition-shadow duration-300">
+        {/* Image */}
         <div className="relative h-48 w-full">
           <Image
             src={project.image}
@@ -31,11 +32,18 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className="object-cover"
           />
         </div>
-        <CardContent className="flex-1 flex flex-col p-6">
+
+        {/* Content */}
+        <CardContent className="flex flex-col flex-1 p-6">
+          {/* Title */}
           <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-          <p className="text-muted-foreground mb-4 flex-1">
+
+          {/* Description */}
+          <p className="text-muted-foreground mb-4">
             {project.description}
           </p>
+
+          {/* Technologies */}
           <div className="flex flex-wrap gap-2 mb-4">
             {project.technologies.map((tech) => (
               <Badge key={tech} variant="secondary">
@@ -43,6 +51,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </Badge>
             ))}
           </div>
+
+          {/* Action Buttons */}
           <div className="flex items-center gap-3 mt-auto">
             {project.github && (
               <Button asChild variant="outline" size="sm">
@@ -57,7 +67,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </Button>
             )}
             {project.demo && (
-              <Button asChild size="sm">
+              <Button asChild variant="default" size="sm">
                 <Link
                   href={project.demo}
                   target="_blank"
